@@ -1,0 +1,11 @@
+Q: Do the exercies classes (addition, subtraction etc.) encapsulate a single question?
+A: Yes.  We will call a generator (or similar) to generate a series of objects.
+
+Q: Will the individual classes (addition, subtraction etc.) contain formatting?
+A: No.  We want the questions to deal with the numeric values only.  We will have formatting classes to take care of the layout.  This will allow for more flexible designs down the road (ie LaTeX or other).
+
+To Do:
+	- Look into properties for validation, or assertion (assert statement)
+
+Possible To Do:
+	- refactor objects to accept keyword args 
