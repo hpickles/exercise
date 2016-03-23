@@ -12,17 +12,30 @@ class Util:
 			
 		return result
 
-	def calculateSum(operands):
-		pass
+	def calculateSum(self, operands):
+		base = 0
+		for operand in operands:
+			base += operand
+		return base
 		
-	def calculateDifference(operands):
-		pass
+	def calculateDifference(self, operands):
+		base = 0
+		for operand in operands:
+			base -= operand
+		return base
+			
 
-	def calculateProduct(operands):
-		pass
+	def calculateProduct(self, operands):
+		base = 1
+		for operand in operands:
+			base *= operand
+		return base
 
-	def calculateQuotient():
-		pass
+	def calculateQuotient(self, operands):
+		base = 1
+		for operand in operands:
+			base = base/operand
+		return base
 
 class Exercise:
 	def calculateResult(self):
@@ -40,7 +53,7 @@ class Addition(Exercise):
 		self.calculateResult()
 
 	def calculateResult(self):
-		self.answer = sum(self.operands)
+		self.answer = self.util.calculateSum(self.operands)
 
 class Subtraction(Exercise):
 	def __init__(self, numberOfOperands=5, minValue=0, maxValue=12):
@@ -54,8 +67,11 @@ class Subtraction(Exercise):
 		self.calculateResult()
 
 	def calculateResult(self):
-		pass
+		self.answer = self.util.calculateDifference(self.operands)
 
 if __name__ == '__main__':
-	exercise = Addition()
-	print(exercise.__dict__)
+	addition = Addition()
+	print(addition.__dict__)
+
+	subtraction = Subtraction()
+	print(subtraction.__dict__)
