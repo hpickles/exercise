@@ -32,6 +32,7 @@ class Util:
 		return base
 
 	def calculateQuotient(self, operands):
+		### NOT WORKING PROPERLY ###
 		base = 1
 		for operand in operands:
 			base = base/operand
@@ -69,9 +70,26 @@ class Subtraction(Exercise):
 	def calculateResult(self):
 		self.answer = self.util.calculateDifference(self.operands)
 
+class Multiplication(Exercise):
+	def __init__(self, numberOfOperands=4, minValue=1, maxValue=3):
+		self.util = Util()
+		self.numberOfOperands = numberOfOperands
+		self.minValue = minValue
+		self.maxValue = maxValue
+		self.operands = self.util.generateTuple(numberOfOperands, minValue, maxValue)
+
+		# Then we will calculate the answer
+		self.calculateResult()
+
+	def calculateResult(self):
+		self.answer = self.util.calculateProduct(self.operands)
+
 if __name__ == '__main__':
 	addition = Addition()
 	print(addition.__dict__)
 
 	subtraction = Subtraction()
 	print(subtraction.__dict__)
+
+	multiplication = Multiplication()
+	print(multiplication.__dict__)
