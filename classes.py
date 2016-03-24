@@ -38,6 +38,41 @@ class Util:
 			base = base/operand
 		return base
 
+class Menu:
+	def additionMenu(self):
+		print("Addition Menu")
+
+	def subtractionMenu(self):
+		print("Subtraction Menu")
+	
+	def multiplicationMenu(self):
+		print("Multiplication Menu")
+
+	def mainMenuOptions(self, selection):
+		argumentOptions = {
+			"1":self.additionMenu,
+			"2":self.subtractionMenu,
+			"3":self.multiplicationMenu
+		}
+
+		func = argumentOptions.get(selection, lambda: print("Incorrect Selection"))
+		return func()
+
+	def terminalMenu(self):
+		# Let's poll the user for how they would like to create the worksheet
+		print("Hello, and welcome to the worksheet generator program.")
+		print("Please select from the following options.  Enter \"exit\" to terminate the program")
+		print("1. Addition")
+		print("2. Subtraction")
+		print("3. Multiplication")
+		while True:
+			response = input("Please choose a number from the options: ")
+			self.mainMenuOptions(response)
+			#print(response)
+			if(response == "exit"):
+				print("Thank you for using the worksheet program!  See you again next time.")
+				break
+
 class Exercise:
 	def calculateResult(self):
 		pass
@@ -84,7 +119,17 @@ class Multiplication(Exercise):
 	def calculateResult(self):
 		self.answer = self.util.calculateProduct(self.operands)
 
+class Worksheet:
+	menu = Menu()
+	def __init__(self):
+		self.menu.terminalMenu()
+
+
 if __name__ == '__main__':
+
+	worksheet = Worksheet()
+
+'''
 	addition = Addition()
 	print(addition.__dict__)
 
@@ -93,3 +138,4 @@ if __name__ == '__main__':
 
 	multiplication = Multiplication()
 	print(multiplication.__dict__)
+'''
