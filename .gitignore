@@ -1,4 +1,9 @@
+# Python Libraries
 math
 random
 
+# No vim swap files
 *.swp
+
+# No Python bytecode
+*.pyc
