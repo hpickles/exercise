@@ -4,6 +4,10 @@ random
 
 # No vim swap files
 *.swp
+*.swo
 
 # No Python bytecode
 *.pyc
+
+# Planning Files
+menuPlanning.txt

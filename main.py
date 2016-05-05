@@ -1,8 +1,8 @@
-import worksheet
+import menu
 
 if __name__ == '__main__':
 
-	worksheet = worksheet.Worksheet()
+	menu.terminalMenu()
 
 """
 	addition = exercises.Addition()

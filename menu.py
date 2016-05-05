@@ -1,5 +1,6 @@
 import math
 import os
+import worksheet
 
 def additionMenu():
 	os.system('clear')
@@ -182,13 +183,27 @@ def mainMenuOptions(selection):
 		"3":multiplicationMenu
 	}
 
-	func = argumentOptions.get(selection, lambda: print("Incorrect Selection"))
+	func = argumentOptions.get(selection, lambda: {"status":"invalid"})
 	return func()
 
+def processMainMenuOption(menuResponse):
+	os.system('clear')
+	if(menuResponse['status'] == 'exit'):
+		#nothing to add
+		print("Nothing to add")
+	elif(menuResponse['status'] == 'invalid'):
+		#nothing to add
+		print("It appears you have entered an invalid response.")
+	else:
+		print("Add stuff to the worksheet")
+
 def terminalMenu():
+	# Let's create a worksheet opject for the menu to store information in.
+	sheet = worksheet.Worksheet()
+	os.system('clear')
+	print("Hello, and welcome to the worksheet generator program.")
 	while True:
 		# Let's poll the user for how they would like to create the worksheet
-		print("Hello, and welcome to the worksheet generator program.")
 		print("Please select from the following options.  Enter \"exit\" to terminate the program")
 		print("1. Addition")
 		print("2. Subtraction")
@@ -199,6 +214,7 @@ def terminalMenu():
 			break
 		else:
 			menuResponse = mainMenuOptions(response)
-			print(menuResponse)
+			#print(menuResponse)
+			processMainMenuOption(menuResponse)
 		#os.system('clear')
 
