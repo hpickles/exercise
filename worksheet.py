@@ -2,4 +2,5 @@ import menu
 import exercises
 
 class Worksheet:
-	pass
+    def __init__(self):
+        self.exercises = []
