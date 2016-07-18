@@ -232,6 +232,7 @@ def terminalMenu():
         print("3. Multiplication")
         response = input("Please choose a number from the options: ")
         if(response == "exit"):
+            sheet.generateWorksheet()
             print("Thank you for using the worksheet program!  See you again next time.")
             break
         else:
